@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SpaceDiscover</title>
+  <link rel="icon" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="#">
+        <img src="assets/img/TeamLogo.png"></img>
+        <p>SpaceDiscover</p>
+      </a>
+    </div>
+    <a class = "download" id="download1" href="#">Download</a> </div>
+  </header>
+  <div class = "hero">
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    <div class="hero-wrapper">
+      <div class="planetWrapper">
+        <div class="planet">
+          <img src="./assets/img/3.png" id="earth" alt="">
+          <img src="./assets/img/2.png" id="shuttle" alt="">
+          <img src="./assets/img/1.png" id="dots" alt="">
+        </div>
+      </div>
+      <div class="hero-text">
+        <h1>Discover space easily</h1>
+        <p>Use our interactive game to discover space and more</p>
+        <a class="download" id="download2" href="#">Download</a>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+  <section class = "description">
+      <h3 class="title">Advantages for you</h3>
+      <p>So why do you have to download our game? Let us explain </p>
+      <hr>
+      <ul class="grid">
+        <li>
+          <i class="fas fa-user-astronaut fa-4x"></i>
+          <h4>Travel</h4>
+          <p>Launch your spaceship and travel across our Solar system, discover planets and more...</p>
+        </li>
+        <li>
+          <i class="fas fa-rocket fa-4x"></i>
+          <h4>Discover</h4>
+          <p>Find planets and other space objects, settle on them or inspect them</p>
+        </li>
+        <li>
+          <i class="fas fa-trophy fa-4x"></i>
+          <h4>Earn points</h4>
+          <p>You will be given a few questions about your current location. Answer them correctly and earn points</p>
+        </li>
+        <li>
+          <i class="fas fa-space-shuttle fa-4x"></i>
+          <h4>Continue discovering</h4>
+          <p>We are planning to broad our application by adding new places to discover. Stay in touch!</p>
+        </li>
+    
+      </ul>
+  </section>
+  <section class = "Repeat">
+    <h3 class = "title">Are you still thinking?</h3>
+    <p>Be sure to check it, it's aaaaawweessssoooome</p>
+    <hr/>
+    <a class="download" id = "download3" href="#">Download</a>
+  </section>
+  <footer>
+    <p>All rigths reserved. Invisible team 2018</p>
+    <p>It's not worth of your time to read what is inside of footer.</p>
+    <ul>
+      <li><a href="https://www.facebook.com/profile.php?id=100006199185868" target = "_blank"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+      <li><a href="https://t.me/TyraelS" target = "_blank"><i class="fab fa-telegram fa-2x"></i></a></li>
+      <li><a href="https://www.instagram.com/oleh_shynkarenko/" target = "_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+    </ul>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC28N8PB11E8tvdLE486P43zHwRz7nCPeY",
+      authDomain: "spaceapp-f3302.firebaseapp.com",
+      databaseURL: "https://spaceapp-f3302.firebaseio.com",
+      projectId: "spaceapp-f3302",
+      storageBucket: "spaceapp-f3302.appspot.com",
+      messagingSenderId: "948734006040"
+    };
+    firebase.initializeApp(config);
+    document.querySelector('#download1').onclick = () => {
+      downloadFile();
+    };
+    document.querySelector('#download2').onclick = () => {
+      downloadFile();
+    };
+    document.querySelector('#download3').onclick = () => {
+      downloadFile();
+    };
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    var starsRef = storageRef.child('SpaceApp.exe');
+    function downloadFile(){
+      starsRef.getDownloadURL().then(function (url) {
+        return location.href = url;
+      })
+    }
+</script>
+</body>
+</html>
